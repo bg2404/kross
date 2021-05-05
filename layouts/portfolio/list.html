@@ -29,7 +29,8 @@
       {{ range .Data.Pages }}
       <div class="col-lg-4 col-6 mb-4 shuffle-item" data-groups="[{{range $index, $element:= .Params.categories }}{{if ne $index 0}},{{end}}&quot;{{. | urlize}}&quot;{{ end }}]">
         <div class="position-relative rounded hover-wrapper">
-          <img src="{{.Params.image | absURL }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+          <img src="{{.Params.image | absURL }}" alt="portfolio-image"
+            class="portfolio-image img-fluid rounded w-100 d-block">
           <div class="hover-overlay">
             <div class="hover-content">
               <a class="btn btn-light btn-sm" href="{{ .Permalink }}">view project</a>
@@ -43,10 +44,12 @@
 </section>
 <!-- /portfolio -->
 
+{{ if site.Data.homepage.clients_logo_slider.enable }}
 <section class="section bg-light">
   <div class="container">
     {{ partial "client-slider.html" . }}
   </div>
 </section>
+{{ end }}
 
 {{ end }}
